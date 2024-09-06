@@ -2,15 +2,15 @@
   "version": 2,
   "builds": [
     {
-      "src": "backend/src/index.js",
+      "src": "src/index.js",
       "use": "@vercel/node",
       "config": {
         "includeFiles": [
-          "backend/src/**/*.js",
-          "backend/src/schema.js",
-          "backend/src/resolvers.js",
-          "backend/src/telegramBot.js",
-          "backend/src/.env"
+          "src/**/*.js",
+          "src/schema.js",
+          "src/resolvers.js",
+          "src/telegramBot.js",
+          "src/.env"
         ]
       }
     }
@@ -18,7 +18,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "backend/src/index.js"
+      "dest": "src/index.js"
     }
   ],
   "env": {
