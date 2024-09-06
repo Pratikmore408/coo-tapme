@@ -1,5 +1,30 @@
 {
   "version": 2,
-  "builds": [{ "src": "./index.js", "use": "@vercel/node" }],
-  "routes": [{ "src": "/(.*)", "dest": "/" }]
+  "builds": [
+    {
+      "src": "backend/src/index.js",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": [
+          "backend/src/**/*.js",
+          "backend/src/schema.js",
+          "backend/src/resolvers.js",
+          "backend/src/telegramBot.js",
+          "backend/src/.env"
+        ]
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "backend/src/index.js"
+    }
+  ],
+  "env": {
+    "SUPABASE_URL": "@supabase-url",
+    "SUPABASE_KEY": "@supabase-key",
+    "TELEGRAM_BOT_TOKEN": "@telegram-bot-token",
+    "PORT": "4000"
+  }
 }
